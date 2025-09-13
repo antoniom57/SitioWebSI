@@ -1,11 +1,16 @@
-export default function Home(){
+// pages/index.js
+import Link from 'next/link';
+
+export default function Home() {
     return (
-    <main style={{fontFamily:'Arial',padding:20}}>
-    <h1>Proyecto: Biblioteca Comunitaria</h1>
-    <p>Landing simple — intención: intercambio y préstamo de libros entre vecinos.</p>
-    <p>
-    <a href="/register">Registrarse</a> | <a href="/login">Iniciar sesión</a>
-    </p>
-    </main>
-    )
-    }
+        <main className="hero-container">
+            <h1>GymForce</h1>
+            <p>Tu viaje hacia la fuerza y la salud comienza aquí. Únete a nuestra comunidad.</p>
+            
+            <nav className="hero-nav">
+                <Link href="/register">Registrarse</Link>
+                <Link href="/login">Iniciar sesión</Link>
+            </nav>
+        </main>
+    );
+}
