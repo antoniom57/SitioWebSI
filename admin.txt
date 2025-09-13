@@ -1,0 +1,4 @@
+credenciales del admin
+
+admin@gmail.com
+admin123
