@@ -1,72 +1,314 @@
 /* styles/styles.css */
 
+/* Variables globales */
+:root {
+  --primary-color: #FFC300;
+  --secondary-color: #121212;
+  --accent-color: #FF5733;
+  --text-color: #ffffff;
+  --text-secondary: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --section-padding: 4rem 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: #121212;
-  color: #ffffff;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Estilos para la Página Principal (Hero) --- */
+.home-container {
+  width: 100%;
+}
+
+.hero-container {
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/gym.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 8rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
-main {
-  width: 100%;
-  max-width: 400px;
-  padding: 2rem;
-  box-sizing: border-box;
-}
-
-/* --- Estilos para la Página Principal (Hero) --- */
-.hero-container {
-  text-align: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/gym.png');
-  background-size: cover;
-  background-position: center;
-  padding: 6rem 2rem;
-  border-radius: 10px;
+.hero-content {
   max-width: 800px;
 }
 
+.hero-content.fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .hero-container h1 {
-  font-size: 3.5rem;
-  margin-bottom: 0.5rem;
-  color: #FFC300; /* Un amarillo vibrante */
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-container p {
-  font-size: 1.2rem;
-  color: #e0e0e0;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
 }
 
-.hero-nav a {
-  color: #ffffff;
-  background-color: #FFC300;
-  color: #121212;
-  padding: 10px 20px;
-  margin: 0 10px;
+.hero-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.cta-button {
+  padding: 12px 30px;
   text-decoration: none;
   font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 
-.hero-nav a:hover {
+.cta-button.primary {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 2px solid var(--primary-color);
+}
+
+.cta-button.large {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button.primary:hover {
   background-color: #ffde7a;
+}
+
+.cta-button.secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* Secciones generales */
+section {
+  padding: var(--section-padding);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+}
+
+/* Features Section */
+.features-section {
+  background-color: var(--secondary-color);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Classes Section */
+.classes-section {
+  background-color: #1a1a1a;
+}
+
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.class-card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.class-card:hover {
+  transform: translateY(-5px);
+}
+
+.class-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.class-image.cardio {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/cardio.jpg');
+}
+
+.class-image.strength {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/strength.jpg');
+}
+
+.class-image.yoga {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/yoga.jpg');
+}
+
+.class-content {
+  padding: 1.5rem;
+}
+
+.class-content h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.class-content span {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Testimonials Section */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  position: relative;
+}
+
+.testimonial-card:before {
+  /* Aquí se inserta un carácter de comillas dobles.
+    Nota: La sintaxis correcta sería '"' o '“'.
+  */
+  content: "“"; 
+  
+  /* Estilos para la comilla */
+  font-size: 5rem;
+  color: var(--primary-color);
+  opacity: 0.2;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  line-height: 1;
+}
+
+.testimonial-author {
+  margin-top: 1.5rem;
+}
+
+.testimonial-author span {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/images/cta-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.cta-section h2 {
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #0f0f0f;
+  padding: 3rem 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3, .footer-section h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #333;
 }
 
 /* --- Estilos para Formularios (Login y Registro) --- */
 .form-container {
-  background-color: #1e1e1e;
+  background-color: var(--card-bg);
   padding: 2.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  margin: 2rem auto;
 }
 
 .form-container h2 {
   text-align: center;
-  color: #FFC300;
+  color: var(--primary-color);
   margin-top: 0;
   margin-bottom: 2rem;
   font-size: 2rem;
@@ -95,7 +337,7 @@ main {
 
 .form-input:focus, .form-select:focus {
   outline: none;
-  border-color: #FFC300;
+  border-color: var(--primary-color);
 }
 
 .btn-primary {
@@ -103,8 +345,8 @@ main {
   padding: 12px;
   border: none;
   border-radius: 5px;
-  background-color: #FFC300;
-  color: #121212;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
@@ -129,18 +371,19 @@ main {
 }
 
 .form-link a {
-  color: #FFC300;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
 /* --- Estilos para el Dashboard --- */
 .dashboard-container {
-  background-color: #1e1e1e;
+  background-color: var(--card-bg);
   padding: 2.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
+  margin: 2rem auto;
 }
 
 .dashboard-header {
@@ -150,15 +393,16 @@ main {
 }
 
 .dashboard-header h2 {
-  color: #FFC300;
+  color: var(--primary-color);
   margin: 0;
+  text-align: left;
 }
 
 .dashboard-info p {
   background-color: #2a2a2a;
   padding: 10px;
   border-radius: 5px;
-  border-left: 3px solid #FFC300;
+  border-left: 3px solid var(--primary-color);
 }
 
 .btn-logout {
@@ -167,8 +411,37 @@ main {
   background-color: #c0392b;
   color: white;
   margin-top: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .btn-logout:hover {
   background-color: #e74c3c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-container h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-container p {
+    font-size: 1.2rem;
+  }
+  
+  .hero-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
 }
