@@ -42,18 +42,18 @@ Para ejecutar la aplicación, necesitas iniciar tanto el servidor del backend co
 1. Iniciar el Backend (Flask)
 
 En una terminal, ejecuta el siguiente comando desde la raíz del proyecto:
-Bash
 
-backend.sh
+
+bash backend.sh
 
 Este script activará el entorno virtual de Python y arrancará el servidor de Flask. Por defecto, estará disponible en http://127.0.0.1:5000.
 
 2. Iniciar el Frontend (Next.js)
 
 En otra terminal, ejecuta el siguiente comando desde la raíz del proyecto:
-Bash
 
-frontend.sh
+
+bash frontend.sh
 
 Este script iniciará el servidor de desarrollo de Next.js. Por defecto, estará disponible en http://localhost:3000.
 
