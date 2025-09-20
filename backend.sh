@@ -1,4 +1,4 @@
 cd backend
 python -m venv venv
 source venv/bin/activate
-flask run
+flask run --host=0.0.0.0

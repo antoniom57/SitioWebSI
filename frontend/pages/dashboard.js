@@ -12,7 +12,7 @@ export default function Dashboard() {
             return;
         }
 
-        fetch('http://localhost:5000/api/me', {
+        fetch('http://3.16.161.81:5000/api/me', {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(r => r.json())
