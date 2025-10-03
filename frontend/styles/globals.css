@@ -28,6 +28,7 @@ body {
 /* --- Estilos para la Página Principal (Hero) --- */
 .home-container {
   width: 100%;
+  overflow-x: hidden;
 }
 
 .hero-container {
