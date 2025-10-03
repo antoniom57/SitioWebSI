@@ -17,7 +17,6 @@ body {
   background-color: var(--secondary-color);
   color: var(--text-color);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 .container {
@@ -190,15 +189,15 @@ h2 {
 }
 
 .class-image.cardio {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/cardio.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/public/images/cardio.jpg');
 }
 
 .class-image.strength {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/strength.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/public/images/strength.jpg');
 }
 
 .class-image.yoga {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/yoga.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/public/images/yoga.jpg');
 }
 
 .class-content {
@@ -259,7 +258,7 @@ h2 {
 /* CTA Section */
 .cta-section {
   text-align: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/images/cta-bg.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/public/images/cta-bg.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
