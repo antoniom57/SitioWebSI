@@ -17,6 +17,7 @@ body {
   background-color: var(--secondary-color);
   color: var(--text-color);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .container {
@@ -28,7 +29,7 @@ body {
 /* --- Estilos para la Página Principal (Hero) --- */
 .home-container {
   width: 100%;
-  overflow-x: hidden;
+  
 }
 
 .hero-container {
