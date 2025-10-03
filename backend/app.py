@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
-import os, bcrypt, jwt
+import os, bcrypt, jwt, sys # <-- IMPORTANTE: He añadido 'sys'
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -9,13 +9,32 @@ app = Flask(__name__)
 CORS(app)
 
 MONGO_URI = os.getenv("MONGO_URI")
-
-print(f"--- Intentando conectar con URI: {MONGO_URI} ---")
 JWT_SECRET = os.getenv("SECRET_KEY", "devsecret")
 
-client = MongoClient(MONGO_URI, tls=True)
-db = client.get_default_database()
-users = db.users
+# --- BLOQUE DE CONEXIÓN MODIFICADO ---
+print(f"--- Intentando conectar con URI: {MONGO_URI} ---")
+
+try:
+    # Intentamos crear el cliente con un tiempo de espera de 10 segundos
+    client = MongoClient(MONGO_URI, tls=True, serverSelectionTimeoutMS=10000)
+    
+    # Esta línea es CRÍTICA. Fuerza a pymongo a conectar AHORA MISMO.
+    # Si hay un error, ocurrirá aquí y será capturado por el 'except'.
+    client.server_info()
+    
+    print("--- ¡CONEXIÓN A MONGODB EXITOSA! ---")
+    
+    # Solo definimos 'db' y 'users' si la conexión fue exitosa
+    db = client.get_default_database()
+    users = db.users
+
+except Exception as e:
+    print("--- !!! ERROR DE CONEXIÓN A MONGODB !!! ---")
+    print(f"El error detallado es: {e}")
+    # Detenemos la aplicación para que el error sea claro y no continúe
+    sys.exit(1)
+# --- FIN DEL BLOQUE MODIFICADO ---
+
 
 @app.route("/api/register", methods=["POST"])
 def register():
@@ -63,4 +82,6 @@ def health():
     return jsonify({"status": "ok"})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # CORREGIDO: Escucha en 0.0.0.0 para ser accesible desde fuera del servidor
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
