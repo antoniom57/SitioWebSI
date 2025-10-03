@@ -28,7 +28,7 @@ body {
 /* --- Estilos para la Página Principal (Hero) --- */
 .home-container {
   width: 100%;
-  
+  overflow-x: hidden;
 }
 
 .hero-container {
@@ -82,7 +82,8 @@ body {
   font-weight: bold;
   border-radius: 50px;
   transition: all 0.3s ease;
-  display: inline-block;
+  
+  text-align: center;
 }
 
 .cta-button.primary {
@@ -189,15 +190,15 @@ h2 {
 }
 
 .class-image.cardio {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/public/images/cardio.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/cardio.jpg');
 }
 
 .class-image.strength {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/public/images/strength.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/strength.jpg');
 }
 
 .class-image.yoga {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/public/images/yoga.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/yoga.jpg');
 }
 
 .class-content {
@@ -258,7 +259,7 @@ h2 {
 /* CTA Section */
 .cta-section {
   text-align: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/public/images/cta-bg.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/images/cta-bg.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
