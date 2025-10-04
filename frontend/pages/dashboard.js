@@ -23,7 +23,7 @@ export default function Dashboard() {
         }
 
 
-        fetch('http://gpsabj.site/api/me', {
+        fetch('https://gpsabj.site/api/me', {
 
             headers: { Authorization: `Bearer ${token}` }
 

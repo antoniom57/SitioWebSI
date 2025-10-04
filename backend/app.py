@@ -82,6 +82,8 @@ def health():
     return jsonify({"status": "ok"})
 
 if __name__ == "__main__":
-    # CORREGIDO: Escucha en 0.0.0.0 para ser accesible desde fuera del servidor
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # El modo debug se controla con una variable de entorno
+    # En producción, esta variable no existirá y debug será False.
+    DEBUG_MODE = os.getenv("FLASK_DEBUG", "False").lower() in ('true', '1', 't')
+    app.run(host='0.0.0.0', port=5000, debug=DEBUG_MODE)
 

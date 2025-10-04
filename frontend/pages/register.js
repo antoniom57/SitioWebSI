@@ -11,7 +11,7 @@ export default function Register() {
 
     async function submit(e) {
         e.preventDefault();
-        const res = await fetch('http://gpsabj.site/api/register', {
+        const res = await fetch('https://gpsabj.site/api/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password, role })
